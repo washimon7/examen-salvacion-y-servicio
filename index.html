@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Examen de Salvación y Servicio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <section id="pantalla-inicio">
+      <header class="portada">
+        <p class="sobretitulo">Club de Líderes JA · Examen de lectura</p>
+        <h1>Salvación y Servicio</h1>
+        <p class="subtitulo">El desafío del Ministerio Joven · Malcolm Allen</p>
+        <p class="detalle">3 niveles · 5 exámenes por nivel · 30 preguntas por examen · 5 alternativas</p>
+      </header>
+      <div id="niveles" class="niveles"></div>
+    </section>
+
+    <section id="pantalla-quiz" hidden>
+      <div class="quiz-barra">
+        <button id="btn-salir" class="btn btn-texto" type="button">← Salir</button>
+        <span id="quiz-titulo" class="quiz-titulo"></span>
+        <span id="quiz-modo" class="badge"></span>
+      </div>
+      <div class="progreso"><div id="progreso-relleno"></div></div>
+      <p id="quiz-contador" class="contador"></p>
+
+      <article class="tarjeta">
+        <h2 id="pregunta-texto"></h2>
+        <div id="opciones" class="opciones"></div>
+        <div id="explicacion" class="explicacion" hidden></div>
+      </article>
+
+      <div class="navegacion">
+        <button id="btn-anterior" class="btn" type="button">← Anterior</button>
+        <button id="btn-siguiente" class="btn btn-primario" type="button">Siguiente →</button>
+        <button id="btn-finalizar" class="btn btn-primario" type="button" hidden>Finalizar examen</button>
+      </div>
+
+      <div id="mapa" class="mapa" aria-label="Mapa de preguntas"></div>
+      <p class="ayuda-teclado">Atajos: teclas A–E para responder · ← → para moverte</p>
+    </section>
+
+    <section id="pantalla-resultado" hidden>
+      <article class="tarjeta resultado">
+        <p id="res-titulo" class="sobretitulo"></p>
+        <p id="res-nota" class="nota"></p>
+        <p id="res-porcentaje" class="porcentaje"></p>
+        <p id="res-mensaje" class="mensaje"></p>
+        <div class="acciones">
+          <button id="btn-revisar" class="btn" type="button"></button>
+          <button id="btn-repetir" class="btn btn-primario" type="button">Repetir este examen</button>
+          <button id="btn-inicio" class="btn" type="button">Volver al inicio</button>
+        </div>
+      </article>
+      <div id="revision" hidden></div>
+    </section>
+  </main>
+
+  <dialog id="dlg-inicio">
+    <div id="form-inicio">
+      <h2 id="dlg-titulo"></h2>
+      <p>30 preguntas con 5 alternativas cada una.</p>
+      <label class="switch-fila">
+        <span class="switch">
+          <input type="checkbox" id="chk-mostrar">
+          <span class="slider"></span>
+        </span>
+        <span class="switch-texto">
+          <strong>¿Mostrarte las respuestas?</strong>
+          <small id="dlg-ayuda"></small>
+        </span>
+      </label>
+      <div class="acciones">
+        <button type="button" id="btn-cancelar" class="btn">Cancelar</button>
+        <button type="button" id="btn-comenzar" class="btn btn-primario">Comenzar</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-confirmar">
+    <h2 id="conf-titulo"></h2>
+    <p id="conf-texto"></p>
+    <div class="acciones">
+      <button type="button" id="conf-no" class="btn">Seguir en el examen</button>
+      <button type="button" id="conf-si" class="btn btn-primario"></button>
+    </div>
+  </dialog>
+
+  <script src="data/facil-1.js"></script>
+  <script src="data/facil-2.js"></script>
+  <script src="data/facil-3.js"></script>
+  <script src="data/facil-4.js"></script>
+  <script src="data/facil-5.js"></script>
+  <script src="data/medio-1.js"></script>
+  <script src="data/medio-2.js"></script>
+  <script src="data/medio-3.js"></script>
+  <script src="data/medio-4.js"></script>
+  <script src="data/medio-5.js"></script>
+  <script src="data/dificil-1.js"></script>
+  <script src="data/dificil-2.js"></script>
+  <script src="data/dificil-3.js"></script>
+  <script src="data/dificil-4.js"></script>
+  <script src="data/dificil-5.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

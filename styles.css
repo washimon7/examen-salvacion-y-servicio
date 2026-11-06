@@ -1,0 +1,222 @@
+:root {
+  --bg: #f5f4f0;
+  --card: #ffffff;
+  --texto: #1d1f23;
+  --suave: #5f6670;
+  --borde: #d9d6cd;
+  --primario: #2b4c7e;
+  --primario-txt: #ffffff;
+  --ok: #1f7a4d;
+  --ok-bg: #e3f4ea;
+  --mal: #b3261e;
+  --mal-bg: #fbe7e5;
+  --sel-bg: #e6edf8;
+  --facil: #1f7a4d;
+  --medio: #b7791f;
+  --dificil: #b3261e;
+  --perilla: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #16181c;
+    --card: #20242a;
+    --texto: #eceae4;
+    --suave: #9aa1ab;
+    --borde: #363b44;
+    --primario: #7aa2e3;
+    --primario-txt: #10151d;
+    --ok: #5cc98d;
+    --ok-bg: #173826;
+    --mal: #f08a82;
+    --mal-bg: #43201d;
+    --sel-bg: #25334a;
+    --facil: #5cc98d;
+    --medio: #e3b24f;
+    --dificil: #f08a82;
+    --perilla: #eceae4;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #16181c;
+  --card: #20242a;
+  --texto: #eceae4;
+  --suave: #9aa1ab;
+  --borde: #363b44;
+  --primario: #7aa2e3;
+  --primario-txt: #10151d;
+  --ok: #5cc98d;
+  --ok-bg: #173826;
+  --mal: #f08a82;
+  --mal-bg: #43201d;
+  --sel-bg: #25334a;
+  --facil: #5cc98d;
+  --medio: #e3b24f;
+  --dificil: #f08a82;
+  --perilla: #eceae4;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--texto);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+main { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+
+[hidden] { display: none !important; }
+
+.portada { text-align: center; margin-bottom: 28px; }
+.sobretitulo { margin: 0; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--suave); }
+h1 { margin: 6px 0 4px; font-size: 34px; line-height: 1.15; }
+.subtitulo { margin: 0; color: var(--suave); }
+.detalle { margin: 12px 0 0; font-size: 14px; color: var(--suave); }
+
+.niveles { display: grid; gap: 16px; }
+.nivel {
+  background: var(--card);
+  border: 1px solid var(--borde);
+  border-left: 6px solid var(--color);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.nivel h2 { margin: 0; font-size: 20px; color: var(--color); }
+.nivel p { margin: 2px 0 12px; color: var(--suave); font-size: 14px; }
+.lista-examenes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.btn-examen {
+  padding: 10px 0;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--texto);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-examen:hover:not(:disabled) { border-color: var(--color); color: var(--color); }
+.btn-examen:disabled { opacity: .4; cursor: not-allowed; }
+
+.btn {
+  padding: 10px 18px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--texto);
+  font: inherit;
+  cursor: pointer;
+}
+.btn:hover:not(:disabled) { border-color: var(--primario); }
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+.btn-primario { background: var(--primario); border-color: var(--primario); color: var(--primario-txt); font-weight: 600; }
+.btn-texto { border: none; background: none; color: var(--suave); padding: 6px 0; }
+
+.quiz-barra { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.quiz-titulo { flex: 1; min-width: 0; font-weight: 600; }
+.badge { font-size: 12px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--borde); color: var(--suave); }
+.badge.con-respuestas { color: var(--ok); border-color: var(--ok); }
+
+.progreso { height: 6px; background: var(--borde); border-radius: 999px; overflow: hidden; }
+#progreso-relleno { height: 100%; width: 0; background: var(--primario); transition: width .2s; }
+.contador { margin: 8px 0 12px; font-size: 14px; color: var(--suave); }
+
+.tarjeta { background: var(--card); border: 1px solid var(--borde); border-radius: 12px; padding: 20px; }
+.tarjeta h2 { margin: 0 0 16px; font-size: 20px; line-height: 1.4; }
+
+.opciones { display: grid; gap: 10px; }
+.opcion {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--texto);
+  font: inherit;
+  cursor: pointer;
+}
+.opcion:hover:not(:disabled) { border-color: var(--primario); }
+.opcion .letra {
+  flex: none;
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--borde);
+  font-size: 13px; font-weight: 700;
+}
+.opcion.sel { background: var(--sel-bg); border-color: var(--primario); }
+.opcion.ok { background: var(--ok-bg); border-color: var(--ok); }
+.opcion.mal { background: var(--mal-bg); border-color: var(--mal); }
+.opcion.revelar { border-color: var(--ok); border-style: dashed; }
+.opcion:disabled { cursor: default; color: var(--texto); }
+
+.explicacion { margin-top: 16px; padding: 12px 14px; border-radius: 10px; background: var(--sel-bg); font-size: 15px; }
+.explicacion b { display: block; margin-bottom: 2px; }
+
+.navegacion { display: flex; justify-content: space-between; gap: 10px; margin: 16px 0; }
+
+.mapa { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; }
+.mapa button {
+  padding: 6px 0;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--texto);
+  font: inherit; font-size: 13px;
+  cursor: pointer;
+}
+.mapa button.respondida { background: var(--sel-bg); border-color: var(--primario); }
+.mapa button.actual { outline: 2px solid var(--primario); outline-offset: 1px; font-weight: 700; }
+.mapa button.ok { background: var(--ok-bg); border-color: var(--ok); }
+.mapa button.mal { background: var(--mal-bg); border-color: var(--mal); }
+.ayuda-teclado { margin-top: 14px; text-align: center; font-size: 12px; color: var(--suave); }
+
+.resultado { text-align: center; }
+.nota { margin: 8px 0 0; font-size: 56px; font-weight: 800; line-height: 1; }
+.porcentaje { margin: 4px 0 0; font-size: 20px; color: var(--suave); }
+.mensaje { margin: 16px 0 22px; }
+.acciones { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+
+#revision { margin-top: 20px; display: grid; gap: 14px; }
+.rev-item { background: var(--card); border: 1px solid var(--borde); border-radius: 12px; padding: 16px; }
+.rev-item.ok { border-left: 6px solid var(--ok); }
+.rev-item.mal { border-left: 6px solid var(--mal); }
+.rev-item h3 { margin: 0 0 8px; font-size: 16px; }
+.rev-item p { margin: 4px 0; font-size: 15px; }
+.rev-item .etq { color: var(--suave); }
+
+dialog { border: 1px solid var(--borde); border-radius: 14px; background: var(--card); color: var(--texto); padding: 24px; max-width: 460px; width: calc(100% - 32px); }
+dialog::backdrop { background: rgba(0, 0, 0, .5); }
+dialog h2 { margin: 0 0 6px; }
+dialog p { margin: 0 0 18px; color: var(--suave); }
+
+.switch-fila { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 22px; cursor: pointer; }
+.switch { position: relative; flex: none; width: 48px; height: 28px; margin-top: 2px; }
+.switch input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; z-index: 1; }
+.slider { position: absolute; inset: 0; background: var(--borde); border-radius: 999px; transition: background .15s; }
+.slider::before { content: ""; position: absolute; width: 22px; height: 22px; left: 3px; top: 3px; background: var(--perilla); border-radius: 50%; transition: transform .15s; }
+.switch input:checked + .slider { background: var(--ok); }
+.switch input:checked + .slider::before { transform: translateX(20px); }
+.switch input:focus-visible + .slider { outline: 2px solid var(--primario); outline-offset: 2px; }
+.switch-texto { display: grid; gap: 2px; }
+.switch-texto small { color: var(--suave); font-size: 13px; }
+
+@media (max-width: 520px) {
+  h1 { font-size: 28px; }
+  .mapa { grid-template-columns: repeat(6, 1fr); }
+  /* En el celular los botones muestran solo el número: «Examen 1» no cabe en cinco columnas. */
+  .btn-examen .pal { display: none; }
+}
+
+/* En pantallas táctiles no hay teclado: se ocultan los atajos. */
+@media (hover: none) {
+  .ayuda-teclado { display: none; }
+}
