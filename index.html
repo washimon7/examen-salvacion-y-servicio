@@ -13,7 +13,8 @@
         <p class="sobretitulo">Club de Líderes JA · Examen de lectura</p>
         <h1>Salvación y Servicio</h1>
         <p class="subtitulo">El desafío del Ministerio Joven · Malcolm Allen</p>
-        <p class="detalle">3 niveles · 5 exámenes por nivel · 30 preguntas por examen · 5 alternativas</p>
+        <p class="detalle">3 niveles · 7 exámenes por nivel · 21 preguntas por examen · 4 alternativas</p>
+        <p class="detalle">Incluye las 21 preguntas del simulacro de la APC (11/10/2026), repartidas por nivel.</p>
       </header>
       <div id="niveles" class="niveles"></div>
     </section>
@@ -28,9 +29,10 @@
       <p id="quiz-contador" class="contador"></p>
 
       <article class="tarjeta">
+        <p id="pregunta-simulacro" class="etiqueta-simulacro" hidden></p>
         <h2 id="pregunta-texto"></h2>
         <div id="opciones" class="opciones"></div>
-        <div id="explicacion" class="explicacion" hidden></div>
+        <div id="explicacion" class="respuesta" hidden></div>
       </article>
 
       <div class="navegacion">
@@ -40,7 +42,7 @@
       </div>
 
       <div id="mapa" class="mapa" aria-label="Mapa de preguntas"></div>
-      <p class="ayuda-teclado">Atajos: teclas A–E para responder · ← → para moverte</p>
+      <p class="ayuda-teclado">Atajos: teclas A–D para responder · ← → para moverte</p>
     </section>
 
     <section id="pantalla-resultado" hidden>
@@ -62,7 +64,7 @@
   <dialog id="dlg-inicio">
     <div id="form-inicio">
       <h2 id="dlg-titulo"></h2>
-      <p>30 preguntas con 5 alternativas cada una.</p>
+      <p>21 preguntas con 4 alternativas cada una.</p>
       <label class="switch-fila">
         <span class="switch">
           <input type="checkbox" id="chk-mostrar">
@@ -89,21 +91,35 @@
     </div>
   </dialog>
 
+  <dialog id="dlg-libro" class="visor" aria-label="Extracto del libro ampliado">
+    <img id="visor-img" alt="">
+    <div class="visor-pie">
+      <p id="visor-texto"></p>
+      <button type="button" id="visor-cerrar" class="btn">Cerrar</button>
+    </div>
+  </dialog>
+
   <script src="data/facil-1.js"></script>
   <script src="data/facil-2.js"></script>
   <script src="data/facil-3.js"></script>
   <script src="data/facil-4.js"></script>
   <script src="data/facil-5.js"></script>
+  <script src="data/facil-6.js"></script>
+  <script src="data/facil-7.js"></script>
   <script src="data/medio-1.js"></script>
   <script src="data/medio-2.js"></script>
   <script src="data/medio-3.js"></script>
   <script src="data/medio-4.js"></script>
   <script src="data/medio-5.js"></script>
+  <script src="data/medio-6.js"></script>
+  <script src="data/medio-7.js"></script>
   <script src="data/dificil-1.js"></script>
   <script src="data/dificil-2.js"></script>
   <script src="data/dificil-3.js"></script>
   <script src="data/dificil-4.js"></script>
   <script src="data/dificil-5.js"></script>
+  <script src="data/dificil-6.js"></script>
+  <script src="data/dificil-7.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -15,6 +15,13 @@
   --medio: #b7791f;
   --dificil: #b3261e;
   --perilla: #ffffff;
+  --sim: #7a4b12;
+  --sim-bg: #f6ead6;
+  --ojo: #a15c00;
+  --ojo-bg: #fdf1dc;
+  --zona: #f0eee8;
+  --papel: #ffffff;
+  --filtro-libro: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,6 +42,13 @@
     --medio: #e3b24f;
     --dificil: #f08a82;
     --perilla: #eceae4;
+    --sim: #e8b86a;
+    --sim-bg: #3a2c17;
+    --ojo: #f0b35a;
+    --ojo-bg: #36270f;
+    --zona: #1a1d22;
+    --papel: #ffffff;
+    --filtro-libro: brightness(.82);
     color-scheme: dark;
   }
 }
@@ -56,6 +70,13 @@
   --medio: #e3b24f;
   --dificil: #f08a82;
   --perilla: #eceae4;
+  --sim: #e8b86a;
+  --sim-bg: #3a2c17;
+  --ojo: #f0b35a;
+  --ojo-bg: #36270f;
+  --zona: #1a1d22;
+  --papel: #ffffff;
+  --filtro-libro: brightness(.82);
   color-scheme: dark;
 }
 
@@ -88,7 +109,7 @@ h1 { margin: 6px 0 4px; font-size: 34px; line-height: 1.15; }
 }
 .nivel h2 { margin: 0; font-size: 20px; color: var(--color); }
 .nivel p { margin: 2px 0 12px; color: var(--suave); font-size: 14px; }
-.lista-examenes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.lista-examenes { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
 .btn-examen {
   padding: 10px 0;
   border: 1px solid var(--borde);
@@ -158,12 +179,51 @@ h1 { margin: 6px 0 4px; font-size: 34px; line-height: 1.15; }
 .opcion.revelar { border-color: var(--ok); border-style: dashed; }
 .opcion:disabled { cursor: default; color: var(--texto); }
 
-.explicacion { margin-top: 16px; padding: 12px 14px; border-radius: 10px; background: var(--sel-bg); font-size: 15px; }
-.explicacion b { display: block; margin-bottom: 2px; }
+.etiqueta-simulacro {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--sim-bg);
+  color: var(--sim);
+  font-size: 12px; font-weight: 700; letter-spacing: .03em;
+}
+
+/* Ficha de la respuesta: la misma estructura que la guía PDF del simulacro. */
+.respuesta { margin-top: 16px; display: grid; gap: 12px; }
+.veredicto { margin: 0; padding: 10px 14px; border-radius: 10px; font-weight: 700; }
+.veredicto.ok { background: var(--ok-bg); color: var(--ok); }
+.veredicto.mal { background: var(--mal-bg); color: var(--mal); }
+.ficha { display: grid; gap: 12px; min-width: 0; }
+.bloque h3, .libro figcaption {
+  margin: 0 0 4px;
+  font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--suave);
+}
+.bloque .cuerpo { font-size: 15px; }
+.ficha q { quotes: "«" "»" "“" "”"; font-style: italic; }
+.ficha table.mini { width: 100%; margin-top: 8px; border-collapse: collapse; font-size: 14px; }
+.ficha table.mini td { padding: 5px 6px; border-top: 1px solid var(--borde); vertical-align: top; }
+.ficha table.mini td:first-child { width: 40%; color: var(--suave); }
+.libro { margin: 0; padding: 12px 12px 4px; border-radius: 10px; background: var(--zona); border: 1px solid var(--borde); }
+.libro img {
+  display: block; width: 100%; height: auto; max-width: 100%;
+  border: 1px solid var(--borde); border-radius: 4px;
+  background: var(--papel); filter: var(--filtro-libro);
+}
+.libro figcaption { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.libro .ampliar { display: none; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.libro img { cursor: zoom-in; }
+.libro .pagina { margin: 4px 0 8px; font-size: 12px; color: var(--suave); text-align: right; }
+.ojo { padding: 10px 14px; border-radius: 10px; background: var(--ojo-bg); border-left: 4px solid var(--ojo); }
+.ojo h3 { color: var(--ojo); }
+.pie { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.pie .bloque { padding: 10px 14px; border-radius: 10px; background: var(--zona); }
+.pie .bloque h3 { color: var(--primario); }
 
 .navegacion { display: flex; justify-content: space-between; gap: 10px; margin: 16px 0; }
 
-.mapa { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; }
+.mapa { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
 .mapa button {
   padding: 6px 0;
   border: 1px solid var(--borde);
@@ -190,10 +250,15 @@ h1 { margin: 6px 0 4px; font-size: 34px; line-height: 1.15; }
 .rev-item.ok { border-left: 6px solid var(--ok); }
 .rev-item.mal { border-left: 6px solid var(--mal); }
 .rev-item h3 { margin: 0 0 8px; font-size: 16px; }
-.rev-item p { margin: 4px 0; font-size: 15px; }
+.rev-item > p { margin: 4px 0; font-size: 15px; }
+.rev-item .ficha { margin-top: 10px; }
 .rev-item .etq { color: var(--suave); }
 
 dialog { border: 1px solid var(--borde); border-radius: 14px; background: var(--card); color: var(--texto); padding: 24px; max-width: 460px; width: calc(100% - 32px); }
+.visor { max-width: 980px; width: 100%; padding: 0; overflow: hidden; }
+.visor img { display: block; width: 100%; height: auto; background: var(--papel); filter: var(--filtro-libro); cursor: zoom-out; }
+.visor-pie { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; }
+.visor-pie p { margin: 0; font-size: 13px; }
 dialog::backdrop { background: rgba(0, 0, 0, .5); }
 dialog h2 { margin: 0 0 6px; }
 dialog p { margin: 0 0 18px; color: var(--suave); }
@@ -211,12 +276,19 @@ dialog p { margin: 0 0 18px; color: var(--suave); }
 
 @media (max-width: 520px) {
   h1 { font-size: 28px; }
-  .mapa { grid-template-columns: repeat(6, 1fr); }
-  /* En el celular los botones muestran solo el número: «Examen 1» no cabe en cinco columnas. */
+  .tarjeta { padding: 16px; }
+  .pal-nivel { display: none; }
+  .libro { padding: 10px 8px 2px; }
+  .visor { width: 100vw; max-width: 100vw; border-radius: 0; border-left: 0; border-right: 0; }
+}
+
+/* En pantallas angostas los botones muestran solo el número: «Examen 1» no cabe en siete columnas. */
+@media (max-width: 640px) {
   .btn-examen .pal { display: none; }
 }
 
 /* En pantallas táctiles no hay teclado: se ocultan los atajos. */
 @media (hover: none) {
   .ayuda-teclado { display: none; }
+  .libro .ampliar { display: inline; }
 }
